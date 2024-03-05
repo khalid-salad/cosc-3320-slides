@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Fractional Knapsack</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template">
+# Fractional Knapsack</script></section><section data-markdown><script type="text/template">* Similar to Knapsack except we can take *fractions* of items
+* Example: <!-- .element class="fragment" -->
+| Item | Weight | Profit |
+| ---- | ------ | ------ |
+| 1    | 18     | 25     |
+| 2    | 15     | 24     |
+| 3    | 10     | 15     |
+* If max capacity is 22, we can take <!-- .element class="fragment" -->
+    * All of item 1, 4 kgs of item 2 <!-- .element class="fragment" -->
+    * All of item 2, 7 kgs of item 3 <!-- .element class="fragment" --></script></section><section data-markdown><script type="text/template">## Optimal Strategy
+* We can add items in 
+  * decreasing order of profit <!-- .element class="fragment" -->
+  * increasing order of weight <!-- .element class="fragment" -->
+* Unfortuately, neither works. <!-- .element class="fragment" -->
+  * Add items in decreasing order of profit by weight  <!-- .element class="fragment" -->
+| Item | Weight | Profit | Profit/Weight |
+| ---- | ------ | ------ | ------------- |
+| 1    | 18     | 25     | 1.3888        |
+| 2    | 15     | 24     | 1.6           |
+| 3    | 10     | 15     | 1.5           |</script></section><section data-markdown><script type="text/template">| Item | Weight | Profit | Profit/Weight |
+| ---- | ------ | ------ | ------------- |
+| 1    | 18     | 25     | 1.3888        |
+| 2    | 15     | 24     | 1.6           |
+| 3    | 10     | 15     | 1.5           |
+* Take all of item 2 and 7 kgs of item 3:
+  * weight: $15 + 7 = 22$ <!-- .element class="fragment" -->
+  * profit: $24 + \frac{7}{10}\times 15 = 34.5$ <!-- .element class="fragment" --></script></section></section><section ><section data-markdown><script type="text/template">## Proof of Optimality
+* Our algorithm will output the fraction of each item taken <!-- .element class="fragment" -->
+* In the above example our output was $15/15 = 1$ of item 2 and $7/10 = 0.7$ of item 3: <!-- .element class="fragment" -->
+  * Output: $(0, 1, 0.7)$ <!-- .element class="fragment" -->
+* Let us assume the items are given in decreasing order of profit/weight <!-- .element class="fragment" -->
+* That is, the $i$-th item has profit $p_i$ and weight $w_i$ satisfying <!-- .element class="fragment" -->
+  > $\frac{p_1}{w_1} \geq \frac{p_2}{w_2} \geq \dots \geq \frac{p_n}{w_n}$</script></section><section data-markdown><script type="text/template">* Let $G$ denote our greedy output.
+* Assume $\mathcal{O}$ is some optimal output strictly better than $G$ <!-- .element class="fragment" -->
+  * $G = g_1, g_2, \dots, g_n$ <!-- .element class="fragment" -->
+  * $\mathcal{O} = o_1, o_2, \dots, o_n$ <!-- .element class="fragment" -->
+* We will construct a new output $\mathcal{O}'$ that is even better than $\mathcal{O}$ <!-- .element class="fragment" -->
+  * This contradicts the optimality of $\mathcal{O}$ <!-- .element class="fragment" --></script></section><section data-markdown><script type="text/template">* If all items fit in the knapsack <!-- .element class="fragment" -->
+  * optimal is clearly to just take all items <!-- .element class="fragment" -->
+  * So assume not everything fits <!-- .element class="fragment" -->
+* Say $i$ is the first index where $g_i \neq o_i$ <!-- .element class="fragment" -->
+* Consider a new output, $\mathcal{O}'$, that is the same as $\mathcal{O}$ at indices
+1 through $i - 1$, but takes $g_i$ of item $i$ <!-- .element class="fragment" -->
+  * $\mathcal{O} \phantom{'} = o_1, o_2, \dots, o_i, \dots, o_n$ <!-- .element class="fragment" -->
+  * $\mathcal{O}' = o_1, o_2, \dots, g_i, \dots, z_n$ <!-- .element class="fragment" -->
+* That is, $\mathcal{O}'$ has more of item $i$ and less of items $i + 1$, $i + 2$, ... <!-- .element class="fragment" --></script></section><section data-markdown><script type="text/template">* Consider $\texttt{profit}(\mathcal{O}) - \texttt{profit}(\mathcal{O}')$: <!-- .element class="fragment" -->
+  * $\texttt{profit}(\mathcal{O})\phantom{'} = o_1p_1 + o_2p_2 + \dots + o_ip_i + \dots + o_np_n$ <!-- .element class="fragment" -->
+  * $\texttt{profit}(\mathcal{O}') = o_1p_1 + o_2p_2 + \dots + g_ip_i + \dots + z_np_n$ <!-- .element class="fragment" -->
+* $\texttt{profit}(\mathcal{O}) - \texttt{profit}(\mathcal{O}') = (o_i - g_i)p_i + \displaystyle\sum_{k=i+1}^n(o_k - z_k)p_k$  <!-- .element class="fragment" -->
+* We want to show that $\texttt{profit}(\mathcal{O}) - \texttt{profit}(\mathcal{O}') < 0$ <!-- .element class="fragment" -->
+  * This implies $\texttt{profit}(\mathcal{O}) < \texttt{profit}(\mathcal{O}')$ <!-- .element class="fragment" -->
+  * A contradiction <!-- .element class="fragment" --></script></section><section data-markdown><script type="text/template">* Hard to do anything with 
+  * $(o_i - g_i)p_i + \displaystyle\sum_{k=i+1}^n(o_k - z_k)p_k$
+* But, since the total weight of the two solutions must be equal: <!-- .element class="fragment" -->
+  * $\phantom{=}o_1w_1 + o_2w_2 + \dots + o_iw_i + \dots + o_nw_n$
+    $= o_1w_1 + o_2w_2 + \dots + g_iw_i + \dots + z_nw_n$ <!-- .element class="fragment" -->
+  * $\implies (o_i - g_i)w_i = \displaystyle\sum_{k=i+1}^n (z_k - o_k) w_k$ <!-- .element class="fragment" -->
+  * $\implies (o_i - g_i)p_i = \frac{p_i}{w_i}\displaystyle\sum_{k=i+1}^n (z_k - o_k) w_k$ <!-- .element class="fragment" --></script></section><section data-markdown><script type="text/template">* Now substitute
+  * $(o_i - g_i)p_i = \frac{p_i}{w_i}\displaystyle\sum_{k=i+1}^n (z_k - o_k) w_k$ 
+* Into <!-- .element class="fragment" -->
+  * $\texttt{profit}(\mathcal{O}) - \texttt{profit}(\mathcal{O}')$
+    $= (o_i - g_i)p_i + \displaystyle\sum_{k=i+1}^n(o_k - z_k)p_k$ <!-- .element class="fragment" -->
+
+    $= \frac{p_i}{w_i}\displaystyle\sum_{k=i+1}^n (z_k - o_k) w_k + \displaystyle\sum_{k=i+1}^n(o_k - z_k)p_k$ <!-- .element class="fragment" --></script></section><section data-markdown><script type="text/template">    $= \displaystyle\sum_{k=i+1}^n (z_k - o_k)\frac{p_i}{w_i} w_k + (o_k - z_k)p_k$ 
+    
+    $= \displaystyle\sum_{k=i+1}^n (z_k - o_k) \frac{p_i}{w_i}w_k + (o_k - z_k)\frac{p_k}{w_k}w_k$ <!-- .element class="fragment" -->
+
+    $= \displaystyle\sum_{k=i+1}^n (z_k - o_k) \frac{p_i}{w_i}w_k + (o_k - z_k)\frac{p_k}{w_k}w_k$ <!-- .element class="fragment" -->
+
+    $= \displaystyle\sum_{k=i+1}^n w_k(z_k - o_k)\left(\frac{p_i}{w_i} - \frac{p_k}{w_k}\right)$ <!-- .element class="fragment" --></script></section><section data-markdown><script type="text/template">$= \displaystyle\sum_{k=i+1}^n w_k(z_k - o_k)\left(\frac{p_i}{w_i} - \frac{p_k}{w_k}\right)$ <!-- .element class="fragment" -->
+* Since $\frac{p_i}{w_i}$ are in decreasing order <!-- .element class="fragment" -->
+  * $\frac{p_i}{w_i} - \frac{p_k}{w_k} \geq 0$ <!-- .element class="fragment" -->
+* Since $z_k < o_k$ <!-- .element class="fragment" -->
+  * $z_k - o_k < 0$ <!-- .element class="fragment" -->
+* The above difference is therefore less than 0, and <!-- .element class="fragment" -->
+  * $\texttt{profit}(\mathcal{O}) < \texttt{profit}(\mathcal{O}')$ <!-- .element class="fragment" --></script></section></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
