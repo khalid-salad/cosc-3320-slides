@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mermaid": "^10.9.0",
+    "reveal-md": "^6.1.0"
+  }
+}
