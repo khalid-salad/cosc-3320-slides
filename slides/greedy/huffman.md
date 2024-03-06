@@ -1,6 +1,6 @@
 ---
 title: Huffman Code
-theme: moon
+theme: solarized
 ---
 # Huffman Encoding
 ---
@@ -381,145 +381,47 @@ Note: this function must be injective. Cannot map two different characters to th
 ## Huffman Algorithm
 
 * Create a binary tree:
-    * Take the two elements with lowest frequency <!-- .element: class="fragment" -->
-        <div> <!-- .element: class="fragment" -->
-        
-        * `a`, `b` </div>
-    * Add them as leaves <!-- .element: class="fragment" --> 
-    
-    <div> <!-- .element: class="fragment" -->
+    * Begin with all characters as leaves <!-- .element: class="fragment" -->
+    * Take the two characters with lowest frequency <!-- .element: class="fragment" -->
+        * `a`, `b` <!-- .element: class="fragment" -->
+* Combine them into a new character <!-- .element: class="fragment" -->
 
-    * Combine them into a new character `ab` whose frequency is their sum </div>
+    * Add `ab` as internal node with children `a` and `b`<!-- .element: class="fragment" -->
+    
+    
     * Repeat until there is only one character remaining <!-- .element: class="fragment" -->
 ----
 
-<!-- .slide:  data-transition="none" -->
-
-<div class="container">
-
-<div class="col">
-
-| char | freq |
-|------|------|
-| a    | 0.05 |
-| b    | 0.1  |
-| c    | 0.2  |
-| d    | 0.2  |
-| e    | 0.4  |
-| f    | 0.05 |
-
-</div>
-
-<div class="col">
+<!-- .slide: data-transition="none" -->
 
 ```mermaid
 graph TD
 A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
 F((F<br>0.05))
+
+classDef finished fill:#9a9996
 ```
-</div>
 ----
 
-<!-- .slide:  data-transition="none" -->
-
-
-<div class="container"> 
-
-<div class="col"> <!-- .element: class="fragment" -->
-
-| char | freq |
-|------|------|
-| af    | 0.1 |
-| b    | 0.1  |
-| c    | 0.2  |
-| d    | 0.2  |
-| e    | 0.4  |
-
-</div>
-
-<div class="col">
+<!-- .slide: data-transition="none" -->
 
 ```mermaid
 graph TD
 A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
 F((F<br>0.05))
+
 AF((AF<br>0.1))
 AF --- A
 AF --- F
 
-classDef finished fill:#9a9996,stroke:#333,stroke-width:2px
+classDef finished fill:#9a9996
 class A,F finished
 ```
-</div>
-----
-
-
-<!-- .slide:  data-transition="none" -->
-
-
-<div class="container"> 
-
-<div class="col"> 
-
-| char | freq |
-|------|------|
-| af    | 0.1 |
-| b    | 0.1  |
-| c    | 0.2  |
-| d    | 0.2  |
-| e    | 0.4  |
-
-</div>
-
-<div class="col"> <!-- .element: class="fragment" -->
-
-```mermaid
-graph TD
-A((A<br>0.05))
-F((F<br>0.05))
-B((B<br>0.1))
-AF((AF<br>0.1))
-AF --- A
-AF --- F
-
-classDef finished fill:#9a9996,stroke:#333,stroke-width:2px
-class A,F finished
-```
-</div>
-----
-
-<!-- .slide:  data-transition="none" -->
-
-
-<div class="container"> 
-
-<div class="col"> <!-- .element: class="fragment" -->
-
-| char | freq |
-|------|------|
-| afb    | 0.2 |
-| c    | 0.2  |
-| d    | 0.2  |
-| e    | 0.4  |
-
-</div>
-
-<div class="col"> 
-
-```mermaid
-graph TD
-A((A<br>0.05))
-F((F<br>0.05))
-B((B<br>0.1))
-AFB((AFB<br>0.2))
-AFB --- AF
-AFB --- B
-AF((AF<br>0.1))
-AF --- A
-AF --- F
-
-classDef finished fill:#9a9996,stroke:#333,stroke-width:2px
-class A,F,AF,B finished
-```
-</div>
-----
