@@ -12,15 +12,6 @@
     <link rel="stylesheet" href="./../css/highlight/base16/zenburn.css" />
 
 
-
-    <script>
-      document.write(
-        '<script src="http://' +
-          (location.host || 'localhost').split(':')[0] +
-          ':35729/livereload.js?snipver=1"></' +
-          'script>'
-      );
-    </script>
   </head>
   <body>
     <div class="reveal">
@@ -136,6 +127,8 @@ graph TD
       var options = extend(defaultOptions, {}, queryOptions);
     </script>
 
+    <script src="./../_assets/lib/mermaid.min.js"></script>
+    <script src="./../_assets/lib/reveal-mermaid.js"></script>
 
     <script>
       Reveal.initialize(options);

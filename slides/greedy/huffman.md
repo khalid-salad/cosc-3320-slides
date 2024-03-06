@@ -1,6 +1,6 @@
 ---
 title: Huffman Code
-theme: solarized
+theme: white
 ---
 # Huffman Encoding
 ---
@@ -564,9 +564,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```
 ----
 
@@ -594,9 +591,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```
 ----
 
@@ -624,9 +618,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```
 ----
 
@@ -654,9 +645,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```
 ----
 
@@ -684,46 +672,9 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ==>|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```
 ----
-<div class="flow">
 
-<div class="col">
-```mermaid
-graph TD
-A((A<br>0.05))
-B((B<br>0.1))
-C((C<br>0.2))
-D((D<br>0.2))
-E((E<br>0.4))
-F((F<br>0.05))
-
-AFBCDE((AFBCDE<br>1))
-AFBCDE ---|1| AFBCD
-AFBCDE ---|0| E
-AFBCD((AFBCD<br>0.6))
-AFBCD ---|1| AFBC
-AFBCD ---|0| D
-AFBC((AFBC<br>0.4))
-AFBC ---|1| AFB
-AFBC ---|0| C
-AFB((AFB<br>0.2))
-AFB ---|1| AF
-AFB ---|0| B
-AF((AF<br>0.1))
-AF ---|0| A
-AF ==>|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
-```
-</div>
-<div class="col">
-
-</div>
 | char | freq | codeword |
 | ---- | ---- | -------- |
 | a    | 0.05 | 11110    |
@@ -732,7 +683,7 @@ class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 | d    | 0.2  | 10       |
 | e    | 0.4  | 0        |
 | f    | 0.05 | 11111    |
-</div>
+
 ----
 
 * Average code length:

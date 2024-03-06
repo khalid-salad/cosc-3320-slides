@@ -8,19 +8,10 @@
     <link rel="shortcut icon" href="./../favicon.ico" />
     <link rel="stylesheet" href="./../dist/reset.css" />
     <link rel="stylesheet" href="./../dist/reveal.css" />
-    <link rel="stylesheet" href="./../dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
     <link rel="stylesheet" href="./../css/highlight/base16/zenburn.css" />
 
 
-
-    <script>
-      document.write(
-        '<script src="http://' +
-          (location.host || 'localhost').split(':')[0] +
-          ':35729/livereload.js?snipver=1"></' +
-          'script>'
-      );
-    </script>
   </head>
   <body>
     <div class="reveal">
@@ -514,9 +505,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```</script></section><section data-markdown><script type="text/template">
 ```mermaid
 graph TD
@@ -542,9 +530,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```</script></section><section data-markdown><script type="text/template">
 ```mermaid
 graph TD
@@ -570,9 +555,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```</script></section><section data-markdown><script type="text/template">
 ```mermaid
 graph TD
@@ -598,9 +580,6 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ---|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 ```</script></section><section data-markdown><script type="text/template">
 ```mermaid
 graph TD
@@ -626,44 +605,7 @@ AFB ---|0| B
 AF((AF<br>0.1))
 AF ---|0| A
 AF ==>|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
-```</script></section><section data-markdown><script type="text/template"><div class="flow">
-
-<div class="col">
-```mermaid
-graph TD
-A((A<br>0.05))
-B((B<br>0.1))
-C((C<br>0.2))
-D((D<br>0.2))
-E((E<br>0.4))
-F((F<br>0.05))
-
-AFBCDE((AFBCDE<br>1))
-AFBCDE ---|1| AFBCD
-AFBCDE ---|0| E
-AFBCD((AFBCD<br>0.6))
-AFBCD ---|1| AFBC
-AFBCD ---|0| D
-AFBC((AFBC<br>0.4))
-AFBC ---|1| AFB
-AFBC ---|0| C
-AFB((AFB<br>0.2))
-AFB ---|1| AF
-AFB ---|0| B
-AF((AF<br>0.1))
-AF ---|0| A
-AF ==>|1| F
-
-classDef finished fill:#9a9996
-class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
-```
-</div>
-<div class="col">
-
-</div>
+```</script></section><section data-markdown><script type="text/template">
 | char | freq | codeword |
 | ---- | ---- | -------- |
 | a    | 0.05 | 11110    |
@@ -672,7 +614,7 @@ class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
 | d    | 0.2  | 10       |
 | e    | 0.4  | 0        |
 | f    | 0.05 | 11111    |
-</div></script></section><section data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
 * Average code length:
     * `0.05 * 5 + 0.1 * 4 + 0.2 * 3 + 0.2 * 2 + 0.4 * 1 + 0.05 * 5`</script></section><section data-markdown><script type="text/template">
 * Average code length:
@@ -725,6 +667,8 @@ class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
       var options = extend(defaultOptions, {}, queryOptions);
     </script>
 
+    <script src="./../_assets/lib/mermaid.min.js"></script>
+    <script src="./../_assets/lib/reveal-mermaid.js"></script>
 
     <script>
       Reveal.initialize(options);
