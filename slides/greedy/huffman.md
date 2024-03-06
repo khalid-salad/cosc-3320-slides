@@ -28,7 +28,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="fragment">
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -47,7 +47,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="col"> 
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -72,7 +72,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="col">
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -98,7 +98,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="col">
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -123,7 +123,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="col">
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -149,7 +149,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="col">
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -177,7 +177,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="col">
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -210,7 +210,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="fragment">
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -226,7 +226,7 @@ Note: this function must be injective. Cannot map two different characters to th
 * For fixed length encoding, average code length is just length
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -241,7 +241,7 @@ Note: this function must be injective. Cannot map two different characters to th
 * For fixed length encoding, average code length is just length
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -256,7 +256,7 @@ Note: this function must be injective. Cannot map two different characters to th
 * For fixed length encoding, average code length is just length
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 000      |
 | b    | 0.1  | 001      |
 | c    | 0.2  | 010      |
@@ -273,7 +273,7 @@ Note: this function must be injective. Cannot map two different characters to th
     * i.e., maps character to binary sequences of different lengths <!-- .element: class="fragment" -->
 ----
 | char | codeword |
-|------|----------|
+| ---- | -------- |
 | a    | 0        |
 | b    | 1        |
 | c    | 10       |
@@ -359,7 +359,7 @@ Note: this function must be injective. Cannot map two different characters to th
 <div class="col"> <!-- .element: class="fragment" -->
 
 | char | freq | codeword |
-|------|------|----------|
+| ---- | ---- | -------- |
 | a    | 0.05 | 0        |
 | b    | 0.1  | 10       |
 | c    | 0.2  | 110      |
@@ -381,15 +381,13 @@ Note: this function must be injective. Cannot map two different characters to th
 ## Huffman Algorithm
 
 * Create a binary tree:
-    * Begin with all characters as leaves <!-- .element: class="fragment" -->
-    * Take the two characters with lowest frequency <!-- .element: class="fragment" -->
-        * `a`, `b` <!-- .element: class="fragment" -->
-* Combine them into a new character <!-- .element: class="fragment" -->
-
-    * Add `ab` as internal node with children `a` and `b`<!-- .element: class="fragment" -->
-    
-    
-    * Repeat until there is only one character remaining <!-- .element: class="fragment" -->
+  * Begin with all characters as leaves <!-- .element: class="fragment" -->
+  * Take the two characters with lowest frequency <!-- .element: class="fragment" -->
+    * `a`, `b` <!-- .element: class="fragment" -->
+  * Combine them into a new character <!-- .element: class="fragment" -->
+    * Add `ab` as internal node with children `a` and `b` <!-- .element: class="fragment" -->
+    * `freq(ab) = freq(a) + freq(b)` <!-- .element: class="fragment" -->
+  * Repeat until there is only one character remaining <!-- .element: class="fragment" -->
 ----
 
 <!-- .slide: data-transition="none" -->
@@ -425,3 +423,323 @@ AF --- F
 classDef finished fill:#9a9996
 class A,F finished
 ```
+----
+
+<!-- .slide: data-transition="none" -->
+
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFB((AFB<br>0.2))
+AFB --- AF
+AFB --- B
+AF((AF<br>0.1))
+AF --- A
+AF --- F
+
+classDef finished fill:#9a9996
+class A,F,B,AF finished
+```
+----
+
+<!-- .slide: data-transition="none" -->
+
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBC((AFBC<br>0.4))
+AFBC --- AFB
+AFBC --- C
+AFB((AFB<br>0.2))
+AFB --- AF
+AFB --- B
+AF((AF<br>0.1))
+AF --- A
+AF --- F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C finished
+```
+----
+```mermaid
+
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCD((AFBCD<br>0.6))
+AFBCD --- AFBC
+AFBCD --- D
+AFBC((AFBC<br>0.4))
+AFBC --- AFB
+AFBC --- C
+AFB((AFB<br>0.2))
+AFB --- AF
+AFB --- B
+AF((AF<br>0.1))
+AF --- A
+AF --- F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D finished
+```
+----
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCDE((AFBCDE<br>1))
+AFBCDE --- AFBCD
+AFBCDE --- E
+AFBCD((AFBCD<br>0.6))
+AFBCD --- AFBC
+AFBCD --- D
+AFBC((AFBC<br>0.4))
+AFBC --- AFB
+AFBC --- C
+AFB((AFB<br>0.2))
+AFB --- AF
+AFB --- B
+AF((AF<br>0.1))
+AF --- A
+AF --- F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
+```
+----
+* How to *use* the tree to
+  * encode?
+  * decode?
+* Start at the root
+  * Left subtree is 0
+  * Right subtree is 1
+----
+# Letter "f" codeword
+
+---
+
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCDE((AFBCDE<br>1))
+AFBCDE ==>|1| AFBCD
+AFBCDE ---|0| E
+AFBCD((AFBCD<br>0.6))
+AFBCD ---|1| AFBC
+AFBCD ---|0| D
+AFBC((AFBC<br>0.4))
+AFBC ---|1| AFB
+AFBC ---|0| C
+AFB((AFB<br>0.2))
+AFB ---|1| AF
+AFB ---|0| B
+AF((AF<br>0.1))
+AF ---|0| A
+AF ---|1| F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
+```
+----
+
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCDE((AFBCDE<br>1))
+AFBCDE ---|1| AFBCD
+AFBCDE ---|0| E
+AFBCD((AFBCD<br>0.6))
+AFBCD ==>|1| AFBC
+AFBCD ---|0| D
+AFBC((AFBC<br>0.4))
+AFBC ---|1| AFB
+AFBC ---|0| C
+AFB((AFB<br>0.2))
+AFB ---|1| AF
+AFB ---|0| B
+AF((AF<br>0.1))
+AF ---|0| A
+AF ---|1| F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
+```
+----
+
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCDE((AFBCDE<br>1))
+AFBCDE ---|1| AFBCD
+AFBCDE ---|0| E
+AFBCD((AFBCD<br>0.6))
+AFBCD ---|1| AFBC
+AFBCD ---|0| D
+AFBC((AFBC<br>0.4))
+AFBC ==>|1| AFB
+AFBC ---|0| C
+AFB((AFB<br>0.2))
+AFB ---|1| AF
+AFB ---|0| B
+AF((AF<br>0.1))
+AF ---|0| A
+AF ---|1| F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
+```
+----
+
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCDE((AFBCDE<br>1))
+AFBCDE ---|1| AFBCD
+AFBCDE ---|0| E
+AFBCD((AFBCD<br>0.6))
+AFBCD ---|1| AFBC
+AFBCD ---|0| D
+AFBC((AFBC<br>0.4))
+AFBC ---|1| AFB
+AFBC ---|0| C
+AFB((AFB<br>0.2))
+AFB ==>|1| AF
+AFB ---|0| B
+AF((AF<br>0.1))
+AF ---|0| A
+AF ---|1| F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
+```
+----
+
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCDE((AFBCDE<br>1))
+AFBCDE ---|1| AFBCD
+AFBCDE ---|0| E
+AFBCD((AFBCD<br>0.6))
+AFBCD ---|1| AFBC
+AFBCD ---|0| D
+AFBC((AFBC<br>0.4))
+AFBC ---|1| AFB
+AFBC ---|0| C
+AFB((AFB<br>0.2))
+AFB ---|1| AF
+AFB ---|0| B
+AF((AF<br>0.1))
+AF ---|0| A
+AF ==>|1| F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
+```
+----
+<div class="flow">
+
+<div class="col">
+```mermaid
+graph TD
+A((A<br>0.05))
+B((B<br>0.1))
+C((C<br>0.2))
+D((D<br>0.2))
+E((E<br>0.4))
+F((F<br>0.05))
+
+AFBCDE((AFBCDE<br>1))
+AFBCDE ---|1| AFBCD
+AFBCDE ---|0| E
+AFBCD((AFBCD<br>0.6))
+AFBCD ---|1| AFBC
+AFBCD ---|0| D
+AFBC((AFBC<br>0.4))
+AFBC ---|1| AFB
+AFBC ---|0| C
+AFB((AFB<br>0.2))
+AFB ---|1| AF
+AFB ---|0| B
+AF((AF<br>0.1))
+AF ---|0| A
+AF ==>|1| F
+
+classDef finished fill:#9a9996
+class A,F,B,AF,AFB,C,AFBC,D,E,AFBCD finished
+```
+</div>
+<div class="col">
+
+</div>
+| char | freq | codeword |
+| ---- | ---- | -------- |
+| a    | 0.05 | 11110    |
+| b    | 0.1  | 1110     |
+| c    | 0.2  | 110      |
+| d    | 0.2  | 10       |
+| e    | 0.4  | 0        |
+| f    | 0.05 | 11111    |
+</div>
+----
+
+* Average code length:
+    * `0.05 * 5 + 0.1 * 4 + 0.2 * 3 + 0.2 * 2 + 0.4 * 1 + 0.05 * 5`
+----
+
+* Average code length:
+    * `=2.3`
+* This is optimal!
+* Entropy = 2.2 is a *lower bound*, there may be no encoding that reaches it
